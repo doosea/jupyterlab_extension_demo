@@ -17,19 +17,20 @@
     
 4. build 并按装 自己的插件
 
-   - `jlpm` : 安装依赖
+   - `jlpm` : 安装`package.json`中的依赖， 好像会一起执行`jlpm build`, 生成
       - `lib` 文件夹
       - `node_modules` 文件夹
       - 根目录下, `yarn.lock`
       - 根目录下, `tsconfig.tsbuildinfo`
       
    - `jlpm build` : build typescript source
-   - `jupyter labextension install . --no-build` : 安装但是不build 
+   - `jupyter labextension install . ` : 安装插件
   
 5. 查看自己的服务
     
+    - `jupyter labextension list`: 查看所有的`jupyterlab`插件 
     - `jupyter lab --watch` : 浏览器默认自动开启 `jupyterlab` 服务
-    - 打开 google 浏览器的开发者工具，查看console, 会显示：`JupyterLab extension jupyterlab_apod is activated!`
+    - 打开 google 浏览器的开发者工具，查看console, 会显示：`JupyterLab extension jupyterlab-extension-demo is activated!`
  
 6. terminal按两次 `ctrl + c`, 关掉jupyterlab服务
  

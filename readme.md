@@ -34,15 +34,7 @@
  
 6. terminal按两次 `ctrl + c`, 关掉jupyterlab服务
  
-7. 本地初始化仓库，连接远程仓库
-    
-    - git remote add origin "xxx.git"    
-    - git init
-    - git add .
-    - git commit -m "init rep"
-    - git push origin master
-8.  编译与查看
-    - jlpm run build
-    - jlpm run watch
-    - jupyter lab build
-    - jupyter lab 
+7. 修改 ts 代码后， 从新编译
+    - `jlpm build` : 重新build 前端代码
+    - `jupyter lab build` ： 重新build jupyter labextension 
+    - `jupyter lab`

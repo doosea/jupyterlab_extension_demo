@@ -11,6 +11,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   autoStart: true,
   activate: (app: JupyterFrontEnd) => {
     console.log('JupyterLab extension jupyterlab-extension-demo is activated!');
+    console.log('update index.ts ==> jlpm build');
   }
 };
 

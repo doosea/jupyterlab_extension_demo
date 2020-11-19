@@ -38,3 +38,55 @@
     - `jlpm build` : 重新build 前端代码
     - `jupyter lab build` ： 重新build jupyter labextension 
     - `jupyter lab`
+
+8. ts 安装新的包：
+    - `jlpm add  @jupyterlab/application`:　安装XXX依赖， 同时package.json 的dependencies中会出现相应的包和版本
+    
+9. 插件的卸载：
+    - `jupyter labextension uninstall ext-name`
+
+
+## python 包的开发
+
+
+
+
+
+
+
+
+## jupyterlab 启动时发生了什么
+    
+    
+1. 初始化notebook  
+
+        # /home/dosea/miniconda3/envs/jupyterlab-ext/lib/python3.7/site-packages/notebook/notebookapp.py
+         @catch_config_error
+         def initialize(self, argv=None):
+            self._init_asyncio_patch()
+
+            super(NotebookApp, self).initialize(argv)
+            self.init_logging()
+            if self._dispatching:
+                return
+            self.init_resources()
+            self.init_configurables()
+            self.init_server_extension_config()
+            self.init_components()
+            self.init_webapp()
+            self.init_terminals()
+            self.init_signal()
+            self.init_server_extensions()
+            self.init_mime_overrides()
+            self.init_shutdown_no_activity()
+    1. self._init_asyncio_patch() : 设置默认的异步策略
+    2. self.init_server_extension_config() : 查找 jupyter --path 下所有路径下的配置
+    
+            "NotebookApp": {
+                "nbserver_extensions": {
+                  "jupyter_project": true
+                }
+            }
+    3. self.init_server_extension() : 加载所有配置 为true 的nbserver_extensions
+    
+    
